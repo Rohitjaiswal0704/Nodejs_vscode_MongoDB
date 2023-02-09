@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/mediaquery.css">
+    <script src="https://kit.fontawesome.com/b90a16c0c9.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+
+        <!----------screen1---------->
+      <div class="screen1">
+         <form class="screen1_form" action="/update/<%= filename%>" method="post">
+             <textarea class="textarea" name="filedata" id="" cols="30" rows="10"><%= filedata%></textarea>
+             <button class="btnupdate">Update File</button>
+         </form>
+      </div>
+
+       <!----------screen2---------->
+      <div class="screen2">
+
+         <form class="from22" action="/create" method="post">
+          <label class="lab">Create file</label>
+           <input
+              class="input1"
+              type="text"
+              name="filename"
+              placeholder="Filetsystem.txt"
+           />
+         </form>
+
+         <!----------ul---------->
+        <ul class="list1">
+         <%files.forEach((file)=>{ %>  
+
+          <li class="textlist">
+            <a  href="/file/<%= file%>"><%= file%></a> <!-- //path --> 
+            <a  href="/delete/<%= file%>"><img src="https://img.icons8.com/ios-glyphs/30/null/multiply.png"/></a> 
+          </li>   
+
+          <%})%>
+      </div>
+    </div>
+  </body>
+</html>
